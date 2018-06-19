@@ -1,0 +1,87 @@
+body{
+    margin:0;
+    background-color: #eeeeee;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "Hiragino Sans GB", "Source Han Sans CN Normal", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+::-webkit-scrollbar
+{
+    width: 0;
+    height: 0;
+    background-color: #F5F5F5;
+}
+.allBox{
+    max-width: 480px;
+    width: 100%;
+    margin:0 auto;
+    background-color: #fff;
+    padding:20px 0;
+}
+.aDay{
+    border-bottom: 1px solid #999;
+    padding:8px;
+    width: 80%;
+    margin:0 auto 12px;
+}
+.head{
+    position: relative;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.head:hover>.addItem{
+    display: inline-block;
+}
+.addItem{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    display: none;
+}
+.todayIcon{
+    margin-left:8px;
+    font-size: 0;
+}
+.todayIcon>img{
+    width: 20px;
+}
+.addItem>img{
+    width: 30px;
+}
+.day{
+    font-weight: 900;
+    font-size: 20px;
+}
+.date{
+    font-size: 14px;
+    margin-left: 8px;
+}
+.oneEnty{
+    margin:8px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.oneEnty:hover>.remove{
+    display: inline-block;
+}
+.remove{
+    position: absolute;
+    right: 0;
+    display: none;
+    cursor: pointer;
+}
+.remove>img{
+    width: 20px;
+}
+.content{
+    font-size: 16px;
+    /*height: 16px;*/
+    width: calc(100% - 50px);
+    vertical-align: middle;
+    resize:none;
+    border:none;
+}
+.true_checkBox+textarea{
+    text-decoration: line-through;
+    color: #666;
+}

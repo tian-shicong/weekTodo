@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="http://myrontian.000webhostapp.com/img/cong.ico" media="screen">
+    <title>weekTodo</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-controller="mainCtr">
+    <div class="allBox">
+        <div ng-repeat="date in dataList track by $index" data-index="{{$index}}" class="aDay" ng-init="outerIndex=$index">
+            <div class="head">
+                <span class="day" ng-bind="date.day"></span>
+                <span class="date" ng-bind="date.date"></span>
+                <span class="addItem" ng-click="addItem(outerIndex)">
+                    <img src="img/add.png" alt="">
+                </span>
+                <span class="todayIcon" ng-if="date.isToday">
+                    <img src="img/today.png" alt="">
+                </span>
+            </div>
+            <div class="listWrap">
+                <div ng-repeat="item in date.entry track by $index" class="oneEnty">
+                    <input type="checkbox"  ng-checked="item.status" ng-click="autoTextAreaHeight()" class="{{item.status}}_checkBox" ng-model="item.status">
+                    <textarea ng-model="item.content" oninput="autoTextAreaHeight(this)" ng-change="autoTextAreaHeight()" class="content" rows="1"></textarea>
+                    <span class="remove" ng-click="remove($index, outerIndex)">
+                        <img src="img/remove.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/angular.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/main.js"></script>
+<script src="http://myrontian.000webhostapp.com/js/delete.js"></script>
+<script>
+    //    textarea高度自适应
+    var autoTextAreaHeight = function autoTextAreaHeight(o) {
+        if(o.scrollTop){
+            o.style.height = o.scrollTop + $(o).height() + "px";
+        }
+    }
+    setTimeout(function () {
+        $.each($('textarea'), function (index, item) {
+            $(item).scrollTop(item.scrollHeight - $(item).height());
+            autoTextAreaHeight(item)
+        })
+    })
+</script>
+</html>
